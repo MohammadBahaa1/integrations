@@ -34,7 +34,7 @@ const page = {
         },
         {
             name: 'eventDate',
-            type: 'date',
+            type: 'daterange',
             value: {
                 startDate: '2020-03-20T00:00:00+01',
                 endDate: '2020-03-24T00:00:00+01',

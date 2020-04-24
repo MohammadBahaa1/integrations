@@ -65,35 +65,35 @@ exports.page = {
         },
         {
             type: 'callout',
-            value: 'This is an note with an info message.',
+            value: 'This is a note with an info message.',
             attrs: {
                 type: 'info'
             }
         },
         {
             type: 'callout',
-            value: 'This is an note with a success message.',
+            value: 'This is a note with a success message.',
             attrs: {
                 type: 'success'
             }
         },
         {
             type: 'callout',
-            value: 'This is an note with a warning message.',
+            value: 'This is a note with a warning message.',
             attrs: {
                 type: 'warning'
             }
         },
         {
             type: 'callout',
-            value: 'This is an note with an error message.',
+            value: 'This is a note with an error message.',
             attrs: {
                 type: 'error'
             }
         },
         {
             type: 'callout',
-            value: 'This is an note with a ~~custom icon~~ and **Markdown**.',
+            value: 'This is a note with a ~~custom icon~~ and **Markdown**.',
             attrs: {
                 iconUrl: 'https://img.icons8.com/color/48/000000/accessibility2--v1.png'
             }
