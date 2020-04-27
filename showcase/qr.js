@@ -23,7 +23,7 @@ exports.page = {
         },
         {
             type: 'qr',
-            value: '${prop("local_code")}'
+            value: '${@local_code}'
         },
         {
             type: 'spacer'
@@ -55,7 +55,7 @@ exports.page = {
         },
         {
             type: 'qr',
-            value: '${prop("remote_code")}'
+            value: '${@remote_code}'
         },
         {
             type: 'spacer'
@@ -68,7 +68,7 @@ exports.page = {
                 onClick: {
                     action: 'fetch',
                     payload: {
-                        url: 'https://httpbin.org/get?q=${round(multiply(rand(), pow(10,10)))}'
+                        url: 'https://httpbin.org/get?q=${round(rand() * pow(10,10))}'
                     },
                     onSuccess: {
                         action: 'updateProps',
@@ -76,7 +76,7 @@ exports.page = {
                             props: [
                                 {
                                   name: 'remote_code',
-                                  newValue: 'https://withtree.com/code=${get(get(response, "args"), "q")}'
+                                  newValue: 'https://withtree.com/code=${response[args][q]}'
                                 }
                             ]
                         }
@@ -84,7 +84,7 @@ exports.page = {
                     onError: {
                         action: 'notify',
                         payload: {
-                            message: '${get(error, "message")}'
+                            message: '${error[message]}'
                         }
                     }
                 }

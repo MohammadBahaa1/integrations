@@ -21,7 +21,7 @@ exports.page = {
         },
         {
             type: 'image',
-            value: '${prop("photo_url")}',
+            value: '${@photo_url}',
             attrs: {
                 caption: 'The trees of Mill Valley, California (click to open).',
                 format: 'landscape',
@@ -35,7 +35,7 @@ exports.page = {
         },
         {
             type: 'image',
-            value: '${prop("photo_url")}',
+            value: '${@photo_url}',
             attrs: {
                 format: 'square',
                 caption: 'Square'
@@ -43,7 +43,7 @@ exports.page = {
         },
         {
             type: 'image',
-            value: '${prop("photo_url")}',
+            value: '${@photo_url}',
             attrs: {
                 format: 'original',
                 caption: 'Original'

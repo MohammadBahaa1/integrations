@@ -40,7 +40,7 @@ exports.page = {
         },
         {
             type: 'collection',
-            value: '${prop("photos")}',
+            value: '${@photos}',
             attrs: {
                 viewType: 'gallery',
                 itemSize: 'small',
@@ -48,7 +48,7 @@ exports.page = {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "photo")}',
+                            value: '${item[photo]}',
                             attrs: {
                                 format: 'square'
                             }
@@ -59,7 +59,7 @@ exports.page = {
         },
         {
             type: 'collection',
-            value: '${prop("photos")}',
+            value: '${@photos}',
             attrs: {
                 viewType: 'gallery',
                 itemSize: 'large',
@@ -67,7 +67,7 @@ exports.page = {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "photo")}',
+                            value: '${item[photo]}',
                             attrs: {
                                 format: 'square'
                             }
@@ -85,17 +85,17 @@ exports.page = {
         },
         {
             type: 'collection',
-            value: '${prop("photos")}',
+            value: '${@photos}',
             attrs: {
                 viewType: 'list',
                 renderItem: {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "photo")}',
+                            value: '${item[photo]}',
                             attrs: {
                                 format: 'landscape',
-                                caption: '${get(item, "title")}'
+                                caption: '${item[title]}'
                             }
                         },
                     ]
@@ -121,10 +121,10 @@ exports.page = {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "download_url")}',
+                            value: '${item[download_url]}',
                             attrs: {
                                 format: 'square',
-                                caption: 'Author: ${get(item, "author")}',
+                                caption: 'Author: ${item[author]}',
                             }
                         },
                         {

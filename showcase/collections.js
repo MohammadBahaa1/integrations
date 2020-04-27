@@ -46,7 +46,7 @@ exports.page = {
         },
         {
             type: 'collection',
-            value: '${prop("news")}',
+            value: '${@news}',
             attrs: {
                 viewType: 'gallery',
                 itemSize: 'small',
@@ -54,7 +54,7 @@ exports.page = {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "photo")}',
+                            value: '${item[photo]}',
                             attrs: {
                                 format: 'square'
                             }
@@ -95,10 +95,10 @@ exports.page = {
                     blocks: [
                         {
                             type: 'image',
-                            value: '${get(item, "download_url")}',
+                            value: '${item[download_url]}',
                             attrs: {
                                 format: 'square',
-                                caption: 'Author: ${get(item, "author")}',
+                                caption: 'Author: ${item[author]}',
                             }
                         },
                     ]
@@ -141,7 +141,7 @@ exports.page = {
                     blocks: [
                         {
                             type: 'button',
-                            value: '${get(item, "label")}',
+                            value: '${item[label]}',
                             attrs: {
                                 fill: true,
                             }
@@ -159,18 +159,18 @@ exports.page = {
         },
         {
             type: 'collection',
-            value: '${prop("news")}',
+            value: '${@news}',
             attrs: {
                 viewType: 'list',
                 renderItem: {
                     blocks: [
                         {
                             type: 'heading3',
-                            value: '${get(item, "title")}'
+                            value: '${item[title]}'
                         },
                         {
                             type: 'image',
-                            value: '${get(item, "photo")}',
+                            value: '${item[photo]}',
                             attrs: {
                                 format: 'landscape'
                             }
@@ -179,7 +179,7 @@ exports.page = {
                             type: 'link',
                             value: 'See more →',
                             attrs: {
-                                url: '${get(item, "photo")}'
+                                url: '${item[photo]}'
                             }
                         },
                     ]

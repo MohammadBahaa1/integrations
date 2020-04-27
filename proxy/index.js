@@ -54,7 +54,7 @@ const renderPage = () => {
                             props: [
                                 {
                                     name: 'presences',
-                                    newValue: '${get(item, "presences")}'
+                                    newValue: '${item[presences]}'
                                 }
                             ]
                         }
@@ -67,18 +67,18 @@ const renderPage = () => {
             },
             {
                 type: 'collection',
-                value: `\${{"items": prop("presences")}}`,
+                value: `\${{"items": @presences}}`,
                 attrs: {
                     viewType: 'list',
                     renderItem: {
                         blocks: [
                             {
                                 type: 'heading2',
-                                value: '${get(item, "title")}'
+                                value: '${item[title]}'
                             },
                             {
                                 type: 'image',
-                                value: '${get(item, "photo")}'
+                                value: '${item[photo]}'
                             },
                             {
                                 type: 'button',

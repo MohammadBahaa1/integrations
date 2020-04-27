@@ -59,7 +59,7 @@ exports.page = {
         },
         {
             type: 'button',
-            value: 'Counter ${prop("counter")}',
+            value: 'Counter ${@counter}',
             attrs: {
                 onClick: {
                     action: 'updateProps',
@@ -67,7 +67,7 @@ exports.page = {
                         props: [
                             {
                                 name: 'counter',
-                                newValue: '${add(prop("counter"), 1)}'
+                                newValue: '${@counter + 1}'
                             }
                         ]
                     }
@@ -92,7 +92,7 @@ exports.page = {
                     onError: {
                         action: 'notify',
                         payload: {
-                            message: '${get(error, "message")}'
+                            message: '${[error[message]}'
                         }
                     }
                 }
@@ -113,13 +113,13 @@ exports.page = {
                     onSuccess: {
                         action: 'notify',
                         payload: {
-                            message: 'Success. Got back: ${get(get(response, "json"), "message")}.'
+                            message: 'Success. Got back: ${response[json][message]}.'
                         }
                     },
                     onError: {
                         action: 'notify',
                         payload: {
-                            message: 'Error: ${get(error, "message")}'
+                            message: 'Error: ${error[message]}'
                         }
                     }
                 }

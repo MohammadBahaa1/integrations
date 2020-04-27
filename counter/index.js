@@ -10,7 +10,7 @@ const page = {
     blocks: [
         {
             type: 'button',
-            value: 'Counter ${prop("counter")}',
+            value: 'Counter ${@counter}',
             attrs: {
                 onClick: {
                     action: 'updateProps',
@@ -18,7 +18,7 @@ const page = {
                         props: [
                             {
                                 name: 'counter',
-                                newValue: '${add(prop("counter"), 1)}'
+                                newValue: '${@counter + 1}'
                             }
                         ]
                     }

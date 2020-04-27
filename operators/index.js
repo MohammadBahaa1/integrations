@@ -74,7 +74,7 @@ const page = {
             type: 'button',
             value: 'Continue',
             attrs: {
-                disabled: '${not(prop("accepted"))}',
+                disabled: '${!@accepted}',
                 onClick: {
                     action: 'notify',
                     payload: {
@@ -86,7 +86,7 @@ const page = {
         },
         {
             type: 'text',
-            value: 'Status: ${if(prop("accepted"), "Thank you!", "Please accept the terms")}',
+            value: 'Status: ${@accepted ? "Thank you!" : "Please accept the terms"}',
         },
         {
             type: 'divider'
@@ -118,15 +118,7 @@ const page = {
         },
         {
             type: 'text',
-            value: `Event lasts **\${if(
-                    not(isEmpty(get(prop("eventDate"), "endDate"))),
-                    round(dateDifference(
-                        get(prop("eventDate"), "endDate"),
-                        get(prop("eventDate"), "startDate"),
-                        "days"
-                    )) + 1,
-                    "1"
-                )}** day(s).`,
+            value: `Event lasts **\${isEmpty(@eventDate[endDate]) ? "1" : round(dateDifference(@eventDate[endDate], @eventDate[startDate], "days")) + 1}** day(s).`,
         },
         {
             type: 'divider'
@@ -147,7 +139,7 @@ const page = {
         },
         {
             type: 'text',
-            value: 'You have selected **${if(isEmpty(prop("hands")), "no", length(prop("hands")))}** hands.',
+            value: 'You have selected **${isEmpty(@hands) ? "no" : length(@hands)}** hands.',
         },
         {
             type: 'divider'
@@ -182,7 +174,7 @@ const page = {
             value: 'Save',
             attrs: {
                 type: 'success',
-                disabled: '${smallerThan(length(prop("name")), 3)}',
+                disabled: '${length(@name) < 3}',
                 onClick: {
                     action: 'notify',
                     payload: {
@@ -194,7 +186,7 @@ const page = {
         },
         {
             type: 'text',
-            value: '${if(smallerThan(length(prop("name")), 3), "Please enter a name with at least 3 letters", "Input is OK 👍")}',
+            value: '${length(@name) < 3 ? "Please enter a name with at least 3 letters" : "Input is OK 👍"}',
             attrs: {
                 appearance: 'light',
                 size: 'small'
@@ -221,7 +213,7 @@ const page = {
             type: 'link',
             value: 'My Item',
             attrs: {
-                iconUrl: `https://img.icons8.com/color/48/000000/\${elementAt(${JSON.stringify(ICONS)}, prop("icon"))}.png`
+                iconUrl: `https://img.icons8.com/color/48/000000/\${${JSON.stringify(ICONS)}[@icon]}.png`
             }
         },
         {
@@ -244,10 +236,10 @@ const page = {
         },
         {
             type: 'image',
-            value: `\${elementAt(${JSON.stringify(IMAGE_URLS)}, prop("image"))}`,
+            value: `\${${JSON.stringify(IMAGE_URLS)}[@image]}`,
             attrs: {
                 format: 'square',
-                caption: `\${elementAt(${JSON.stringify(IMAGE_CAPTIONS)}, prop("image"))}`,
+                caption: `\${${JSON.stringify(IMAGE_CAPTIONS)}[@image]}`,
             }
         }
     ]

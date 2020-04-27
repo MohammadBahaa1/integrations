@@ -69,8 +69,8 @@ var app = http.createServer(function (req, res) {
                             payload: {
                                 url: 'https://httpbin.org/post',
                                 params: {
-                                    firstName: '${prop("firstName")}',
-                                    lastName: '${prop("lastName")}'
+                                    firstName: '${@firstName}',
+                                    lastName: '${@lastName}'
                                 }
                             },
                             onSuccess: {
@@ -82,7 +82,7 @@ var app = http.createServer(function (req, res) {
                             onError: {
                                 action: 'notify',
                                 payload: {
-                                    message: 'Error: ${get(error, "message")}'
+                                    message: 'Error: ${error[message]}'
                                 }
                             }
                         }
